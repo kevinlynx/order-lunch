@@ -56,4 +56,5 @@
 * user money operation for admin
 * system start/stop
 * history orders, including money change
+* how to write a singleton class i.e: system
 

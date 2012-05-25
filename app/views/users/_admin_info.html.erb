@@ -10,5 +10,10 @@
       <td><%= all_remain_money %></td>
     </tr>
   </table>
+  <% if system_status %>
+    <%= link_to 'stop', system_path(0), :class => 'link-btn-small' %>
+  <% else %>
+    <%= link_to 'start', system_path(1), :class => 'link-btn-small' %>
+  <% end %>
 </div>
 

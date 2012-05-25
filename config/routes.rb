@@ -11,6 +11,8 @@ Lunch::Application.routes.draw do
   get "home/index"
   match 'stat' => 'home#stat', :via => :get, :as => :stat
   match 'user_stat' => 'home#user_stat', :via => :get, :as => :user_stat
+  match 'system/:flag' => 'home#system', :via => :get, :as => :system
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

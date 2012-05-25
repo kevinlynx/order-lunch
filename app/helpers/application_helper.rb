@@ -19,4 +19,8 @@ module ApplicationHelper
     end
     cnt
   end
+
+  def system_status
+    HomeController.sys_status
+  end
 end
