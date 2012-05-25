@@ -1,0 +1,10 @@
+<%= form_for(:user, :url => user_money_path(@user)) do |f| %>
+    <div>
+      <%= text_field_tag :add_money, '', :class => 'txt-ctrl', :size => "10" %>
+    </div>
+    <div>
+      <%= link_to_submit 'Add', :class => 'link-btn-small' %>
+      <%= link_to 'close', '#', :class => 'link-btn-small', 
+          :onclick => "hide_popup('#addmoney'); return false" %>
+    </div>
+<% end %>

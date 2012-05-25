@@ -1,0 +1,25 @@
+<div id="menu">
+  <table class="stat">
+    <thead>
+    <tr>
+      <th width="21">
+          <%= check_box_tag "checkall", "checkall", false, :onclick => "markAll(this)" %>
+      </th>
+      <th width="300"><b>Name</b></th>
+      <th width="50"><b>Price</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @foods.each do |food| %>
+    <tr>
+      <td>
+        <%= check_box_tag 'food_ids[]', food.id %>
+      </td>
+      <td id="food<%= food.id %>"><%= food.name %></td>
+      <td><%= food.price %></td>
+      <%= render 'foods/item_link', :food => food %>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

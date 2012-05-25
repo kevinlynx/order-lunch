@@ -1,0 +1,23 @@
+<h3 class='window-title'>User Status</h3>
+<div class='formbody'>
+  <table class='stat'>
+    <thead>
+    <tr>
+      <th width="250"><b>Name</b></th>
+      <th width="100"><b>Money</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <% unless user.admin? %>
+        <tr>
+          <td><%= user.name %></td>
+          <td id="user<%= user.id %>"><%= user.money %></td>
+          <td><%= link_to 'add money', user_money_path(user), :remote => true %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+  <div id="addmoney" class="popup"></div>
+</div>

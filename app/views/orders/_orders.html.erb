@@ -1,0 +1,21 @@
+<div id="orders">
+<h3 class='window-title'>My Orders</h3>
+<div class="formbody">
+<% if @orders.count == 0 %>
+  <span>no orders yet</span>
+<% else %>
+<table class="stat">
+  <% @orders.each do |order| %>
+    <tr>
+      <% food = Food.find order.food_id %>
+      <td width="150"><%= food.name %></td>
+      <td width="40"><%= food.price %></td>
+      <td><%= link_to 'cancel', order_path(order), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+<hr>
+<span><b>Total:</b><%= current_user.order_cost %></span>
+<% end %>
+</div>
+</div>

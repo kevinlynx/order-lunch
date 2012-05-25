@@ -1,0 +1,14 @@
+<%= form_for(@food) do |f| %>
+    <div id="error_tip"></div>
+    <div>
+      <%= f.text_field :name, :id => 'food_name', :class => 'txt-ctrl', :size => "15" %>
+    </div>
+    <div>
+      <%= f.text_field :price, :class => 'txt-ctrl', :size => "5" %>
+    </div>
+    <div>
+      <%= link_to_submit 'Update', :class => 'link-btn-small' %>
+      <%= link_to 'close', '#', :class => 'link-btn-small', 
+          :onclick => "hide_popup('#quickedit'); return false" %>
+    </div>
+<% end %>

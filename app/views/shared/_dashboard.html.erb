@@ -1,0 +1,18 @@
+<div id="dashboard">
+  <ul class="nav">
+    <% if user_signed_in? %>
+    <li class="name"><%= current_user.name %></li>
+    <li><%= link_to 'Profile', '#' %></li>
+    <li><%= link_to 'Stat', stat_path %></li>
+    <% if current_user.admin? %>
+      <li><%= link_to 'User Stat', user_stat_path %></li>
+    <% end %>
+    <li><%= link_to 'History orders', '#' %></li>
+    <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+    <% else %>
+    <li><%= link_to t(:sign_up), new_registration_path(resource_name) %>
+    <li><%= link_to t(:sign_in), new_session_path(resource_name) %>
+    <% end %>
+  </ul>
+</div>
+

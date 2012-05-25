@@ -1,0 +1,13 @@
+<div id="optip">
+  <% if flash[:notice] %>
+      <span><%= flash[:notice] %></span>
+  <% end %>
+</div>
+<div id="infobar">
+  <% if current_user.admin? %>
+    <%= render 'users/admin_info' %>
+  <% else %>
+    <%= render 'users/info' %>
+    <%= render 'orders/orders' %>
+  <% end %>
+</div>

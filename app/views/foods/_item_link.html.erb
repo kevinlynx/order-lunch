@@ -1,0 +1,13 @@
+<% if current_user.admin? %>
+  <td>
+    <%= link_to 'delete', food_path(food), :method => :delete, 
+        :confirm => 'are you sure?' %>
+  </td>
+  <td>
+    <%= link_to 'edit', edit_food_path(food), :remote => true %>
+  </td>
+<% else %>
+  <td>
+    <%= link_to 'order', new_order_path(food), :method => :post %>
+  </td>
+<% end %>

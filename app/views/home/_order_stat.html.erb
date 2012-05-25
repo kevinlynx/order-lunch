@@ -1,0 +1,19 @@
+<h3 class='window-title'>Order Status</h3>
+<div class='formbody'>
+  <table class='stat'>
+    <thead>
+    <tr>
+      <th width="250"><b>Name</b></th>
+      <th width="100"><b>Count</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @foods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.order_count %></td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

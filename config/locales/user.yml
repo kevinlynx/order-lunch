@@ -1,0 +1,20 @@
+cn:
+  name: "姓名"
+  email: "邮箱"
+  password: "密码"
+  password_confirmation: "密码确认"
+  remember_me: "记住我"
+  forgot_your_password: "忘记密码？"
+  sign_up_now: "立即注册"
+  reg_need_correct_data: "请填入正确数据"
+  title:
+    sign_in: "登录"
+    sign_up: "注册"
+
+  activerecord:
+    attributes:
+      user:
+        name: "名字"
+        password: "密码"
+        confirmation: "???"
+        email: "邮箱"

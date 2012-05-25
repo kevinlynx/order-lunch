@@ -1,0 +1,23 @@
+<h3 class='window-title'>User Orders</h3>
+<div id="user-orders" class='formbody'>
+  <table class="stat">
+    <thead>
+    <tr>
+      <th width="250"><b>Name</b></th>
+      <th width="100"><b>Food</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <% write_name = false %>
+      <% user.orders.each do |order| %>
+        <tr>
+          <td><%= user.name unless write_name %></td>
+          <td><%= order.food_name %></td>
+          <% write_name = true %>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

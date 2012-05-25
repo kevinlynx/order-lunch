@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lunch</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <div class="middle">
+        <div id="logo">
+         <h1><%= link_to 'ORDER LUNCH', root_path %></h1>
+        </div>
+        <%= render 'shared/dashboard' %>
+      </div>
+    </div>
+    <div id="content" class="middle">
+      <%= yield %>
+    </div>
+    <div id="footer"> 
+      <div class="middle">
+        <span class="quiet">a <b style="color: #3c8ae9;">Kevin Lynx</b> product</span><br/>
+        <span class="quiet">&copy;Kevin Lynx 2012</span>
+      </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+.middle {
+  width: 850px;
+  margin: 0 auto;
+}
+
+#container {
+  margin: 0 auto;
+}
+
+#header {
+  margin-top: 5px;
+  padding: 5px;
+  height: 50px;
+  background: #0075B5;
+  -moz-box-shadow: 0 1px 3px #444;
+  -o-box-shadow: 0 1px 3px #444;
+  -webkit-box-shadow: 0 1px 3px #444;
+  box-shadow: 0 1px 3px #444;
+}
+
+#header #logo {
+  float: left;
+}
+
+#dashboard {
+  margin-top: 15px;
+  float: right;
+}
+
+#header a {
+  text-decoration: none;
+  color: #E2F5FF;
+}
+
+#header a:focus, #header a:hover {
+  color: white; //#09f;
+}
+
+#header h1 {
+  text-shadow: 0 3px 0 #00466C;
+}
+
+#footer {
+  clear: both;
+  font-size: 13px;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  margin-top: 10px;
+  border-top: 1px solid #cacaca;
+  height: 40px;
+}
+
+#content {
+  margin-top: 5px;
+  padding: 10px;
+  min-height: 300px;
+}
+
+#dashboard ul.nav {
+  font-weight: bold;
+  margin: 3px 0 0 0;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+#dashboard ul.nav li {
+  list-style-type: none;
+  display:inline;
+  margin: 0 10px 0 0;
+}
+
+#dashboard ul.nav li.name {
+  margin-right: 15px;
+  color: #E2F5FF;
+}
+
+#dashboard ul.nav a {
+  text-decoration: none;
+  color: #E2F5FF;
+  text-shadow: 0 1px 0 #00466C;
+}
+
+#dashboard ul.nav a.highlight {
+  color: #ff5348;
+}
+
+#dashboard ul.nav a.highlight:hover {
+  color: red;
+}
+
+#dashboard ul.nav a:focus, #dashboard ul.nav a:hover {
+  color: white;//#09f;
+}
+
+#optip {
+  width: 100%;
+  text-align: center;
+}
+
+#optip span {
+  background: #e6efc2; 
+  color: #264409; 
+  padding: 2px 8px;
+  margin: 2px;
+}
+
+#infobar {
+  width: 30%;
+  float: left;
+}
+
+#main {
+  float: right;
+  margin-right: 20px;
+}
+
+table.stat {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+table.stat th {
+  text-align: left;
+  border:1px solid #dfdfdf;
+}
+
+table.stat tbody {
+  background: white;
+}
+
+table tr td {
+  padding: 2px 5px;
+}

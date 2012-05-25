@@ -1,0 +1,17 @@
+
+.single-signin {
+  padding: 5px;
+  width: 26em;
+  margin: 0 auto;
+}
+
+.signup {
+  padding: 5px;
+  width: 26em;
+  margin: 0 auto;
+}
+
+span.validation-error {
+  font-size: 80%;
+  color: red;
+}
