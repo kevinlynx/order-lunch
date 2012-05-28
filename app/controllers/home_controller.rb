@@ -7,6 +7,9 @@ class HomeController < ApplicationController
     @orders = current_user.orders
   end
 
+  def faq
+  end
+
   def stat
     @foods = Food.all()
     @users = User.all()

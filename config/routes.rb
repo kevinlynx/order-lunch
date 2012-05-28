@@ -12,6 +12,7 @@ Lunch::Application.routes.draw do
   match 'order/:food_id' => 'orders#create', :via => :post, :as => :new_order
   resources :orders, :only => [:destroy]
   get "home/index"
+  match 'faq' => 'home#faq', :via => :get, :as => :faq
   match 'stat' => 'home#stat', :via => :get, :as => :stat
   match 'user_stat' => 'home#user_stat', :via => :get, :as => :user_stat
   match 'system/:flag' => 'home#system', :via => :get, :as => :system

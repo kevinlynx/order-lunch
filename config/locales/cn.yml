@@ -1,8 +1,9 @@
 cn:
   order_lunch: "订餐" 
   profile: "个人资料"
-  stat: "点餐统计"
+  stat: "订餐统计"
   menu: "菜单"
+  faq: "帮助"
   user_stat: "用户"
   home: "首页"
   history: "日志"
