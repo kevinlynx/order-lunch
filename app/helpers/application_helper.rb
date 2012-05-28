@@ -20,7 +20,12 @@ module ApplicationHelper
     cnt
   end
 
-  def system_status
-    HomeController.sys_status
+  def system_started?
+    SystemStatus.start?
+  end
+
+  def to_beijing_time(time)
+    zone = ActiveSupport::TimeZone.new('Beijing')
+    time.in_time_zone(zone)
   end
 end

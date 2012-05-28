@@ -1,0 +1,15 @@
+<%= form_for(:user, :url => user_spend_money_path(@user)) do |f| %>
+    <div>
+      <%= label_tag t(:money) %>
+      <%= text_field_tag :spend_money, '', :class => 'txt-ctrl', :size => "10" %>
+    </div>
+    <div>
+      <%= label_tag t(:spend_desc) %>
+      <%= text_field_tag :spend_desc, '', :class => 'txt-ctrl', :size => "20" %>
+    </div>
+    <div>
+      <%= link_to_submit t(:spend_money), :class => 'link-btn-small' %>
+      <%= link_to t(:close), '#', :class => 'link-btn-small', 
+          :onclick => "hide_popup('#spendmoney'); return false" %>
+    </div>
+<% end %>

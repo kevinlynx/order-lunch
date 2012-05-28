@@ -1,21 +1,25 @@
 <div id="orders">
-<h3 class='window-title'>My Orders</h3>
+  <h3 class='window-title'><%= t :my_orders %></h3>
 <div class="formbody">
 <% if @orders.count == 0 %>
-  <span>no orders yet</span>
+  <span><%= t 'tip.no_orders_yet' %></span>
 <% else %>
 <table class="stat">
   <% @orders.each do |order| %>
     <tr>
       <% food = Food.find order.food_id %>
-      <td width="150"><%= food.name %></td>
-      <td width="40"><%= food.price %></td>
-      <td><%= link_to 'cancel', order_path(order), :method => :delete %></td>
+      <td width="250"><%= food.name %></td>
+      <td width="30"><%= food.price %></td>
+      <% if system_started? %>
+        <td width="40">
+          <%= link_to t(:cancel_order), order_path(order), :method => :delete %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
 </table>
 <hr>
-<span><b>Total:</b><%= current_user.order_cost %></span>
+<span><b><%= t :total_price %></b><%= current_user.order_cost %></span>
 <% end %>
 </div>
 </div>

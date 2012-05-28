@@ -6,9 +6,13 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.create(params[:food])
+    @food = Food.new(params[:food])
     respond_to do |format|
-      format.html { redirect_to root_path, :notice => 'create success' }
+      if @food.save
+        format.html { redirect_to root_path, :notice => t('tip.create_success') }
+      else
+        format.html { redirect_to root_path, :notice => t('tip.create_failed') }
+      end
     end
   end
 
@@ -23,15 +27,18 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, :notice => 'destroy success' }
+      format.html { redirect_to root_path, :notice => t('tip.destroy_success') }
     end
   end
 
   def update
     @food = Food.find(params[:id])
-    @food.update_attributes(params[:food])
     respond_to do |format|
-      format.html { redirect_to root_path, :notice => 'update success' }
+      if @food.update_attributes(params[:food])
+        format.html { redirect_to root_path, :notice => t('tip.update_success') }
+      else
+        format.html { redirect_to root_path, :notice => t('tip.update_failed') }
+      end
     end
   end
 
@@ -44,9 +51,9 @@ class FoodsController < ApplicationController
     ret = food_ids ? true : false
     respond_to do |format|
       if ret 
-        format.html { redirect_to root_path, :notice => 'destroy success' }
+        format.html { redirect_to root_path, :notice => t('tip.destroy_success') }
       else
-        format.html { redirect_to root_path, :notice => 'destroy failed' }
+        format.html { redirect_to root_path, :notice => t('tip.destroy_failed') }
       end
     end
   end

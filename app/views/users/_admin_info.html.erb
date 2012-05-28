@@ -1,19 +1,20 @@
-<h3 class='window-title'>User Stats</h3>
+<h3 class='window-title'><%= t :sys_stat %></h3>
 <div class="formbody">
   <table>
     <tr>
-      <td width="150">User count:</td>
+      <td width="150"><%= t 'tip.user_count' %></td>
       <td><%= user_count %></td>
     </tr>
     <tr>
-      <td width="150">Total money:</td>
+      <td width="150"><%= t 'tip.total_remain' %></td>
       <td><%= all_remain_money %></td>
     </tr>
   </table>
-  <% if system_status %>
-    <%= link_to 'stop', system_path(0), :class => 'link-btn-small' %>
+  <hr/>
+  <% if system_started? %>
+    <%= link_to t(:stop_sys), system_path(0), :class => 'link-btn-small' %>
   <% else %>
-    <%= link_to 'start', system_path(1), :class => 'link-btn-small' %>
+    <%= link_to t(:start_sys), system_path(1), :class => 'link-btn-small' %>
   <% end %>
 </div>
 

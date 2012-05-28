@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :permission_check
 
   def create
     order = Order.create(:food_id => params[:food_id].to_i)
     order.build_relation(current_user)
     respond_to do |format|
-      format.html { redirect_to root_path, :notice => 'order success' }
+      format.html { redirect_to root_path, :notice => t('tip.order_success') }
     end
   end
 
@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
       order.build_relation(current_user)
     end if food_ids
     respond_to do |format|
-      format.html { redirect_to root_path, :notice => 'order success' }
+      format.html { redirect_to root_path, :notice => t('tip.order_success') }
     end
   end
 
@@ -24,8 +24,18 @@ class OrdersController < ApplicationController
     @order= Order.find(params[:id])
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, :notice => 'cancel success' }
+      format.html { redirect_to root_path, :notice => t('tip.cancel_success') }
     end
   end
+  
+  private
+    def permission_check
+      authenticate_user!
+      unless SystemStatus.start?
+        respond_to do |format|
+          format.html { redirect_to root_path, :notice => t('system_stopped') }
+        end
+      end
+    end
 end
 

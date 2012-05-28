@@ -1,5 +1,5 @@
 .middle {
-  width: 850px;
+  width: 950px;
   margin: 0 auto;
 }
 
@@ -106,13 +106,12 @@
 }
 
 #infobar {
-  width: 30%;
+  width: 35%;
   float: left;
 }
 
 #main {
   float: right;
-  margin-right: 20px;
 }
 
 table.stat {
@@ -132,3 +131,4 @@ table.stat tbody {
 table tr td {
   padding: 2px 5px;
 }
+

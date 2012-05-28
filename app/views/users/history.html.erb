@@ -1,0 +1,26 @@
+<%= render 'home/nav' %>
+<div id="main">
+  <h3 class='window-title'><%= t :history %></h3>
+<div class='formbody'>
+  <table class='stat'>
+    <thead>
+    <tr>
+      <th width="80"><b><%= t :money_change %></b></th>
+      <th width="200"><b><%= t :money_desc %></b></th>
+      <th width="60"><b><%= t :money_remain %></b></th>
+      <th width="130"><b><%= t :log_date %></b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @money_logs.each do |log| %>
+    <tr>
+      <td><%= log.value %></td>
+      <td><%= log.desc %></td>
+      <td><%= log.remain %></td>
+      <td><%= l to_beijing_time(log.created_at), :format => :short %></td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

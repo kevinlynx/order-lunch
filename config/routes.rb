@@ -1,6 +1,9 @@
 Lunch::Application.routes.draw do
   match 'user/:id' => 'users#add_money', :via => :post, :as => :user_money
   match 'user/:id' => 'users#add_money_form', :via => :get, :as => :user_money
+  match 'user/spend_money/:id' => 'users#spend_money', :via => :post, :as => :user_spend_money
+  match 'user/spend_money/:id' => 'users#spend_money_form', :via => :get, :as => :user_spend_money
+  match 'user/history/:id' => 'users#history', :via => :get, :as => :user_history
   devise_for :users
 
   match 'foods' => 'foods#destroy_many', :via => :delete, :as => :foods

@@ -1,12 +1,18 @@
-<h3 class='window-title'>Today Menu</h3>
+<h3 class='window-title'>
+  <% if system_started? %>
+    <%= t 'tip.today_menu_enable' %>    
+  <% else %>
+    <%= t 'tip.today_menu_disable' %>    
+  <% end %>
+</h3>
 <div id="menu-wrap" class='formbody'>
   <% if current_user.admin? %>
     <%= form_tag(foods_path, :method => 'delete') do %>
       <%= render 'foods/menu' %>
      <div>
-       <%= link_to 'delete', '#', :class => 'link-btn-small', 
+       <%= link_to t(:batch_delete), '#', :class => 'link-btn-small', 
            :onclick => "deleteFoods(this); return false" %>
-       <%= link_to "new", "#", :class => "link-btn-small", :id => "add-food-link", 
+       <%= link_to t(:new_food), "#", :class => "link-btn-small", :id => "add-food-link", 
            :onclick => "switch_quickadd('#add-food-link'); return false;" %>
      </div>
     <% end %>
@@ -15,9 +21,11 @@
   <% else %>
     <%= form_tag(orders_path, :method => 'post') do %>
       <%= render 'foods/menu' %>
+      <% if system_started? %>
       <div>
-        <%= link_to_submit 'order', :class => 'link-btn-small' %>
+        <%= link_to_submit t(:batch_order), :class => 'link-btn-small' %>
       </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

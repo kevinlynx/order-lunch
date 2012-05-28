@@ -1,10 +1,10 @@
-<h3 class='window-title'>Order Status</h3>
+<h3 class='window-title'><%= t :order_status %></h3>
 <div class='formbody'>
   <table class='stat'>
     <thead>
     <tr>
-      <th width="250"><b>Name</b></th>
-      <th width="100"><b>Count</b></th>
+      <th width="300"><b><%= t :food_name %></b></th>
+      <th width="100"><b><%= t :food_count %></b></th>
     </tr>
     </thead>
     <tbody>
@@ -16,4 +16,6 @@
     <% end %>
     </tbody>
   </table>
+  <hr>
+  <span><b><%= t :total_price %></b><%= Order.total_price %></span>
 </div>

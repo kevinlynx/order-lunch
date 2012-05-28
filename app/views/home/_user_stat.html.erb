@@ -1,10 +1,10 @@
-<h3 class='window-title'>User Status</h3>
+<h3 class='window-title'><%= t :user_stat %></h3>
 <div class='formbody'>
   <table class='stat'>
     <thead>
     <tr>
-      <th width="250"><b>Name</b></th>
-      <th width="100"><b>Money</b></th>
+      <th width="250"><b><%= t :user_name %></b></th>
+      <th width="100"><b><%= t :money_remain %></b></th>
     </tr>
     </thead>
     <tbody>
@@ -13,11 +13,13 @@
         <tr>
           <td><%= user.name %></td>
           <td id="user<%= user.id %>"><%= user.money %></td>
-          <td><%= link_to 'add money', user_money_path(user), :remote => true %></td>
+          <td><%= link_to t(:add_money), user_money_path(user), :remote => true %></td>
+          <td><%= link_to t(:spend_money), user_spend_money_path(user), :remote => true %></td>
         </tr>
       <% end %>
     <% end %>
     </tbody>
   </table>
   <div id="addmoney" class="popup"></div>
+  <div id="spendmoney" class="popup"></div>
 </div>

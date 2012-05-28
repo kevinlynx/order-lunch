@@ -57,4 +57,5 @@
 * system start/stop
 * history orders, including money change
 * how to write a singleton class i.e: system
+* test edit/delete food when ordering
 

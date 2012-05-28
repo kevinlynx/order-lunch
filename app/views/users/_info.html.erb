@@ -1,12 +1,12 @@
-<h3 class='window-title'>User Info</h3>
+<h3 class='window-title'><%= t :my_stat %></h3>
 <div class="formbody">
   <table>
     <tr>
-      <td width="100"><b>Name:</b></td>
+      <td width="100"><b><%= t :my_name %></b></td>
       <td><%= current_user.name %></td>
     </tr>
     <tr>
-      <td width="100"><b>Remain:</b></td>
+      <td width="100"><b><%= t :my_remain %></b></td>
       <td><%= current_user.money %></td>
     </tr>
   </table>

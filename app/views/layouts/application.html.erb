@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lunch</title>
+  <title><%= t :order_lunch %></title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -11,7 +11,7 @@
     <div id="header">
       <div class="middle">
         <div id="logo">
-         <h1><%= link_to 'ORDER LUNCH', root_path %></h1>
+         <h1><%= link_to t(:order_lunch), root_path %></h1>
         </div>
         <%= render 'shared/dashboard' %>
       </div>
@@ -21,7 +21,8 @@
     </div>
     <div id="footer"> 
       <div class="middle">
-        <span class="quiet">a <b style="color: #3c8ae9;">Kevin Lynx</b> product</span><br/>
+        <span class="quiet">a
+                <a href="http://codemacro.com">Kevin Lynx</a> product</span><br/>
         <span class="quiet">&copy;Kevin Lynx 2012</span>
       </div>
     </div>

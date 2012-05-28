@@ -56,6 +56,14 @@
   z-index: 200;
   left: 0px;
   top: 0px;
+  border: 1px solid #666;
+  background: white;
+  padding: 8px 5px 5px;
+  margin: 10px 5px;
+}
+
+.popup div {
+  margin: 10px 5px;
 }
 
 .txt-ctrl {

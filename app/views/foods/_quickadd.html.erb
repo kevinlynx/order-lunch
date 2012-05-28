@@ -1,15 +1,20 @@
-<div id="quickadd" style="display:none;">
+<div id="quickadd" class="popup" style="display:none;">
   <%= form_for(:food, :url => foods_path) do |f| %>
     <div id="error_tip"></div>
     <div>
-      <%= f.text_field :name, :id => 'food_name', :class => 'txt-ctrl', :size => "15" %>
+      <%= f.label t(:food_name) %>
+      <%= f.text_field :name, :id => 'food_name', :class => 'txt-ctrl', 
+          :size => "20" %>
     </div>
     <div>
+      <%= f.label t(:food_price) %>
       <%= f.text_field :price, :class => 'txt-ctrl', :size => "5" %>
     </div>
     <div>
-      <%= link_to 'Add', '#', :class => 'link-btn-small', 
+      <%= link_to t(:add_food), '#', :class => 'link-btn-small', 
           :onclick => "check_submit(); return false;" %>
+      <%= link_to t(:close), '#', :class => 'link-btn-small',
+          :onclick => "switch_quickadd('#add-food-link'); return false;" %>
     </div>
   <% end %>
 </div>
