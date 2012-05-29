@@ -133,3 +133,10 @@ table tr td {
   padding: 2px 5px;
 }
 
+#ie6warn {
+  text-align: center;
+  padding: 2px;
+  background: #ccc;
+  color: red;
+}
+

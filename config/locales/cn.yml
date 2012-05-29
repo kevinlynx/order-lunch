@@ -71,5 +71,6 @@ cn:
     update_failed: "更新失败"
     spend_money_success: "扣除成功"
     spend_money_failed: "扣除失败"
+    damn_ie6: "WHAT THE FUCK!你竟然还在用IE6，本站很多功能将不支持上个世纪的浏览器！赶紧升级你的IE，或使用Chrome！"
 
 

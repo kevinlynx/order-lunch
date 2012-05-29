@@ -17,6 +17,12 @@
       </div>
     </div>
     <div id="content" class="middle">
+<!--[if lte IE 6]>
+<div id="ie6warn" class="middle">
+  <p><%= t 'tip.damn_ie6' %></p>
+</div>
+<![endif]-->
+
       <%= yield %>
     </div>
     <div id="footer"> 
