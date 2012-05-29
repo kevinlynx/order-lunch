@@ -1,5 +1,9 @@
 <%= form_for(:user, :url => user_money_path(@user)) do |f| %>
     <div>
+      <%= label_tag t(:user_name) %>
+      <%= text_field_tag :name, @user.name, :disabled => true %>
+    </div>
+    <div>
       <%= label_tag t(:money) %>
       <%= text_field_tag :add_money, '', :class => 'txt-ctrl', :size => "10" %>
     </div>

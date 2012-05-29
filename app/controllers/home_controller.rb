@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @foods = Food.all()
+    @shops = Shop.all()
     @orders = current_user.orders
   end
 
@@ -11,7 +11,7 @@ class HomeController < ApplicationController
   end
 
   def stat
-    @foods = Food.all()
+    @shops = Shop.all()
     @users = User.all()
     @orders = current_user.orders
   end

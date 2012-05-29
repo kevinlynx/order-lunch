@@ -25,6 +25,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
+    Order.destroy_by_food(@food.id)
     @food.destroy
     respond_to do |format|
       format.html { redirect_to root_path, :notice => t('tip.destroy_success') }
@@ -46,6 +47,7 @@ class FoodsController < ApplicationController
     food_ids = params[:food_ids].collect { |id| id.to_i } if params[:food_ids]
     food_ids.each do |id|
         food = Food.find(id)
+        Order.destroy_by_food(id)
         food.destroy
     end if food_ids
     ret = food_ids ? true : false

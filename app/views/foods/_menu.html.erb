@@ -5,26 +5,33 @@
       <th width="21">
           <%= check_box_tag "checkall", "checkall", false, :onclick => "markAll(this)" %>
       </th>
-      <th width="300"><b><%= t :food_name %></b></th>
+      <th width="100" id="tbl_head"><b><%= t :shop_name %></b></th>
+      <th width="200"><b><%= t :food_name %></b></th>
       <th width="50"><b><%= t :food_price %></b></th>
     </tr>
     </thead>
     <tbody>
-    <% if @foods.count.zero? %>
+    <% if @shops.count.zero? %>
       <tr>
+        <td></td>
         <td></td>
         <td style="text-align: center;"><%= t 'tip.no_foods_yet' %></td>
       </tr>
     <% end %>
-    <% @foods.each do |food| %>
-    <tr>
-      <td>
-        <%= check_box_tag 'food_ids[]', food.id %>
-      </td>
-      <td id="food<%= food.id %>"><%= food.name %></td>
-      <td><%= food.price %></td>
-      <%= render 'foods/item_link', :food => food %>
-    </tr>
+    <% @shops.each do |shop| %>
+      <% show_name = false %>
+      <% shop.foods.each do |food| %>
+        <tr>
+          <td>
+            <%= check_box_tag 'food_ids[]', food.id %>
+          </td>
+          <td><%= shop.name unless show_name %></td>
+          <td id="food<%= food.id %>"><%= food.name %></td>
+          <td><%= food.price %></td>
+          <%= render 'foods/item_link', :food => food %>
+        </tr>
+        <% show_name = true %>
+      <% end %>
     <% end %>
     </tbody>
   </table>

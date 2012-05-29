@@ -1,0 +1,15 @@
+<%= form_for(:shop, :url => shops_path) do |f| %>
+  <div>
+    <%= f.label t(:exist_shop) %>
+    <%= collection_select :food, :shop_id, Shop.all, :id, :name %>
+  </div>
+  <div>
+    <%= f.label t(:shop_name) %>
+    <%= f.text_field :name, :class => 'txt-ctrl', :size => "20" %>
+  </div>
+  <div>
+    <%= link_to_submit t(:add), :class => 'link-btn-small' %>
+    <%= link_to t(:close), '#', :class => 'link-btn-small',
+        :onclick => "hide_popup('#addshop'); return false" %>
+  </div>
+<% end %>

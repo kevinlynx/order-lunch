@@ -3,16 +3,22 @@
   <table class='stat'>
     <thead>
     <tr>
-      <th width="300"><b><%= t :food_name %></b></th>
+      <th width="100"><b><%= t :shop_name %></b></th>
+      <th width="200"><b><%= t :food_name %></b></th>
       <th width="100"><b><%= t :food_count %></b></th>
     </tr>
     </thead>
     <tbody>
-    <% @foods.each do |food| %>
-    <tr>
-      <td><%= food.name %></td>
-      <td><%= food.order_count %></td>
-    </tr>
+    <% @shops.each do |shop| %>
+      <% show_name = false %>
+      <% shop.sort_foods.each do |food| %>
+          <tr class=<%= 'quiet' if food.order_count == 0 %>>
+          <td><%= shop.name unless show_name %></td>
+          <td><%= food.name %></td>
+          <td><%= food.order_count %></td>
+        </tr>
+        <% show_name = true %>
+      <% end %>
     <% end %>
     </tbody>
   </table>

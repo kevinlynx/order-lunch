@@ -8,7 +8,7 @@
   <% @orders.each do |order| %>
     <tr>
       <% food = Food.find order.food_id %>
-      <td width="250"><%= food.name %></td>
+      <td width="250"><%= food.full_name %></td>
       <td width="30"><%= food.price %></td>
       <% if system_started? %>
         <td width="40">

@@ -42,6 +42,10 @@ cn:
   money: "金额"
   spend_money: "扣除"
   spend_desc: "说明"
+  new_shop: "添加餐馆"
+  shop_name: "店名"
+  exist_shop: "已有餐馆"
+  add: "添加"
   tip:
     you_sure: "确定操作吗？"
     today_menu_enable: "今日菜单-订餐中"

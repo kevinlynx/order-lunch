@@ -23,4 +23,10 @@ class Order < ActiveRecord::Base
     end
     price
   end
+
+  def self.destroy_by_food(food_id)
+    Order.where("food_id=#{food_id}").each do |order|
+      order.destroy
+    end
+  end
 end

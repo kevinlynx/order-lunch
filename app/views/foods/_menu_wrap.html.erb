@@ -13,11 +13,14 @@
        <%= link_to t(:batch_delete), '#', :class => 'link-btn-small', 
            :onclick => "deleteFoods(this); return false" %>
        <%= link_to t(:new_food), "#", :class => "link-btn-small", :id => "add-food-link", 
-           :onclick => "switch_quickadd('#add-food-link'); return false;" %>
+           :onclick => "show_popup('#quickadd', '#tbl_head'); return false;" %>
+       <%= link_to t(:new_shop), new_shop_path, :class => "link-btn-small", 
+           :id => "addshop-btn", :remote => true %>
      </div>
     <% end %>
     <%= render 'foods/quickadd' %>
     <div id="quickedit" class="popup"></div>
+    <div id="addshop" class="popup"></div>
   <% else %>
     <%= form_tag(orders_path, :method => 'post') do %>
       <%= render 'foods/menu' %>

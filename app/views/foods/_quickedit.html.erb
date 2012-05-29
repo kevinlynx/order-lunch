@@ -9,6 +9,10 @@
       <%= f.text_field :price, :class => 'txt-ctrl', :size => "5" %>
     </div>
     <div>
+      <%= f.label t(:shop_name) %>
+      <%= collection_select :food, :shop_id, Shop.all, :id, :name %>
+    </div>
+    <div>
       <%= link_to_submit t(:update), :class => 'link-btn-small' %>
       <%= link_to t(:close), '#', :class => 'link-btn-small', 
           :onclick => "hide_popup('#quickedit'); return false" %>

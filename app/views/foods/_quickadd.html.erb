@@ -11,10 +11,14 @@
       <%= f.text_field :price, :class => 'txt-ctrl', :size => "5" %>
     </div>
     <div>
+      <%= f.label t(:shop_name) %>
+      <%= collection_select :food, :shop_id, Shop.all, :id, :name %>
+    </div>
+    <div>
       <%= link_to t(:add_food), '#', :class => 'link-btn-small', 
           :onclick => "check_submit(); return false;" %>
       <%= link_to t(:close), '#', :class => 'link-btn-small',
-          :onclick => "switch_quickadd('#add-food-link'); return false;" %>
+          :onclick => "hide_popup('#quickadd'); return false;" %>
     </div>
   <% end %>
 </div>
