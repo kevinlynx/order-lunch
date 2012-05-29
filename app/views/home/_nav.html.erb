@@ -4,7 +4,7 @@
   <% end %>
 </div>
 <div id="infobar">
-  <% if current_user.admin? %>
+  <% if admin? %>
     <%= render 'users/admin_info' %>
   <% else %>
     <%= render 'users/info' %>

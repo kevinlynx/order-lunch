@@ -1,10 +1,7 @@
 class HomeController < ApplicationController
-
-  before_filter :authenticate_user!
-
   def index
     @shops = Shop.all()
-    @orders = current_user.orders
+    @orders = current_user.orders if user_signed_in?
   end
 
   def faq
@@ -13,7 +10,7 @@ class HomeController < ApplicationController
   def stat
     @shops = Shop.all()
     @users = User.all()
-    @orders = current_user.orders
+    @orders = current_user.orders if user_signed_in?
   end
 
   def user_stat

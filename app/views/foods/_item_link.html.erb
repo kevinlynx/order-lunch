@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if admin? %>
   <td>
     <%= link_to t(:delete), food_path(food), :method => :delete, 
         :confirm => t("tip.you_sure") %>

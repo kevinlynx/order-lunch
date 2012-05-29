@@ -1,7 +1,7 @@
 <div id="orders">
   <h3 class='window-title'><%= t :my_orders %></h3>
 <div class="formbody">
-<% if @orders.count == 0 %>
+<% if @orders.nil? or @orders.count == 0 %>
   <span><%= t 'tip.no_orders_yet' %></span>
 <% else %>
 <table class="stat">
@@ -19,7 +19,9 @@
   <% end %>
 </table>
 <hr>
-<span><b><%= t :total_price %></b><%= current_user.order_cost %></span>
+<span>
+  <b><%= t :total_price %></b><%= current_user.order_cost if user_signed_in? %>
+</span>
 <% end %>
 </div>
 </div>

@@ -3,11 +3,17 @@
   <table>
     <tr>
       <td width="100"><b><%= t :my_name %></b></td>
-      <td><%= current_user.name %></td>
+      <td>
+        <% if user_signed_in? %>
+          <%= current_user.name %>
+        <% else %>
+          <%= t 'tip.not_signin' %>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td width="100"><b><%= t :my_remain %></b></td>
-      <td><%= current_user.money %></td>
+      <td><%= current_user.money if user_signed_in? %></td>
     </tr>
   </table>
 </div>

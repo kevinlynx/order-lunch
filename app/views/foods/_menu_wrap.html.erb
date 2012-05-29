@@ -6,7 +6,7 @@
   <% end %>
 </h3>
 <div id="menu-wrap" class='formbody'>
-  <% if current_user.admin? %>
+  <% if admin? %>
     <%= form_tag(foods_path, :method => 'delete') do %>
       <%= render 'foods/menu' %>
      <div>
