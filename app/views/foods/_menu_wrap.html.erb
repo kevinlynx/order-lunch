@@ -13,7 +13,7 @@
        <%= link_to t(:batch_delete), '#', :class => 'link-btn-small', 
            :onclick => "deleteFoods(this); return false" %>
        <%= link_to t(:new_food), "#", :class => "link-btn-small", :id => "add-food-link", 
-           :onclick => "show_popup('#quickadd', '#tbl_head'); return false;" %>
+           :onclick => "show_popup('#quickadd', '#tbl_head', true); return false;" %>
        <%= link_to t(:new_shop), new_shop_path, :class => "link-btn-small", 
            :id => "addshop-btn", :remote => true %>
      </div>
