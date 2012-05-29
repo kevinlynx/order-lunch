@@ -72,5 +72,6 @@ cn:
     spend_money_success: "扣除成功"
     spend_money_failed: "扣除失败"
     damn_ie6: "WHAT THE FUCK!你竟然还在用IE6，本站很多功能将不支持上个世纪的浏览器！赶紧升级你的IE，或使用Chrome！"
+    check_user_order: "提示：最好查看以下用户的订餐信息，以防无效、重复订单！"
 
 
