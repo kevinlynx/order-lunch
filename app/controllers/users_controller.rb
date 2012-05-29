@@ -47,5 +47,22 @@ class UsersController < ApplicationController
     @money_logs = @user.money_logs
     @orders = @user.orders
   end
+
+  def profile
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def profile_update
+    @user = User.find(params[:id])
+    if @user.update_with_password(params[:user])
+      sign_in @user, :bypass => true
+      redirect_to root_path, :notice => t('tip.update_success')
+    else
+      redirect_to root_path, :notice => t('tip.update_failed')
+    end
+  end
 end
 

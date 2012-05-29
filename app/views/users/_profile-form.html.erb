@@ -1,0 +1,20 @@
+<%= form_for(@user, :url => user_profile_path(@user)) do |f| %>
+  <div>
+    <%= f.label t(:old_password) %>
+    <%= f.password_field :current_password, :class => 'txt-ctrl', :size => 15 %>
+  </div>
+  <div>
+    <%= f.label t(:new_password) %>
+    <%= f.password_field :password, :class => 'txt-ctrl', :size => 15 %>
+  </div>
+  <div>
+    <%= f.label t(:confirm_password) %>
+    <%= f.password_field :password_confirmation, :class => 'txt-ctrl', :size => 15 %>
+  </div>
+  <div>
+    <%= link_to_submit t(:update), :class => 'link-btn-small' %>
+    <%= link_to t(:close), '#', :class => 'link-btn-small', 
+        :onclick => "hide_popup('#userprofile'); return false" %>
+  </div>
+<% end %>
+

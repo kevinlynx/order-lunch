@@ -3,7 +3,8 @@
     <li><%= link_to t(:menu), root_path %></li>
     <li><%= link_to t(:stat), stat_path %></li>
     <% if user_signed_in? %>
-      <li><%= link_to t(:profile), '#' %></li>
+      <li><%= link_to t(:profile), user_profile_path(current_user), :id => 'profile-link',
+              :remote => true %></li>
       <% if current_user.admin? %>
         <li><%= link_to t(:user_stat), user_stat_path %></li>
       <% else %>
@@ -17,4 +18,4 @@
     <li><%= link_to t(:faq), faq_path %></li>
   </ul>
 </div>
-
+<div id='userprofile' class='popup'></div>
