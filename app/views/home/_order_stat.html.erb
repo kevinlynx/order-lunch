@@ -1,7 +1,7 @@
 <h3 class='window-title'><%= t :order_status %></h3>
 <div class='formbody'>
   <% total_count = 0 %>
-  <table class='stat'>
+  <table class='stat' id='order-stat-table'>
     <thead>
     <tr>
       <th width="100"><b><%= t :shop_name %></b></th>
@@ -31,3 +31,10 @@
   <br/>
   <span style="color: red; font-size: 90%;"><%= t 'tip.check_user_order' %></span>
 </div>
+<script>
+$(document).ready(function() {
+    setTableHover("#order-stat-table");
+});
+
+</script>
+

@@ -1,7 +1,7 @@
 <h3 class='window-title'><%= t :user_orders %></h3>
 <div id="user-orders" class='formbody'>
   <% user_cnt = 0 %>
-  <table class="stat">
+  <table class="stat" id='user-order-table'>
     <thead>
     <tr>
       <th width="100"><b><%= t :user_name %></b></th>
@@ -24,3 +24,9 @@
   </table>
   <span><b><%= t :order_user_count %></b><%= user_cnt %></span>
 </div>
+<script>
+$(document).ready(function() {
+    setTableHover("#user-order-table");
+});
+
+</script>

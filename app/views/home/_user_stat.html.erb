@@ -1,6 +1,6 @@
 <h3 class='window-title'><%= t :user_stat %></h3>
 <div class='formbody'>
-  <table class='stat'>
+  <table class='stat' id='user-stat-table'>
     <thead>
     <tr>
       <th width="250" id="tbl_head"><b><%= t :user_name %></b></th>
@@ -24,3 +24,9 @@
   <div id="addmoney" class="popup"></div>
   <div id="spendmoney" class="popup"></div>
 </div>
+<script>
+$(document).ready(function() {
+    setTableHover("#user-stat-table");
+});
+
+</script>
