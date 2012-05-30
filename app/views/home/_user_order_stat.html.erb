@@ -1,5 +1,6 @@
 <h3 class='window-title'><%= t :user_orders %></h3>
 <div id="user-orders" class='formbody'>
+  <% user_cnt = 0 %>
   <table class="stat">
     <thead>
     <tr>
@@ -10,6 +11,7 @@
     <tbody>
     <% @users.each do |user| %>
       <% write_name = false %>
+      <% user_cnt += 1 if user.orders.count > 0 %>
       <% user.orders.each do |order| %>
         <tr>
           <td><%= user.name unless write_name %></td>
@@ -20,4 +22,5 @@
     <% end %>
     </tbody>
   </table>
+  <span><b><%= t :order_user_count %></b><%= user_cnt %></span>
 </div>

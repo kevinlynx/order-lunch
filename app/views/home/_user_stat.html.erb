@@ -15,6 +15,7 @@
           <td id="user<%= user.id %>"><%= user.money %></td>
           <td><%= link_to t(:add_money), user_money_path(user), :remote => true %></td>
           <td><%= link_to t(:spend_money), user_spend_money_path(user), :remote => true %></td>
+          <td><%= link_to t(:history), user_history_path(user) %></td>
         </tr>
       <% end %>
     <% end %>
