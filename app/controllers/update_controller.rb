@@ -19,13 +19,18 @@ class UpdateController < ApplicationController
     end
 
     def do_update
+      # 5.30.2012 v2, change user money log
+      MoneyLog.all.each do |log|
+        log.value = log.value * 100
+        log.save
+      end
       # 5.30.2012 v1, update user money multiply by 100
-      User.all.each do |user|
-        unless user.admin?
-          user.money = user.money * 100
-          user.save
-        end
-      end 
+      #User.all.each do |user|
+       # unless user.admin?
+       #   user.money = user.money * 100
+       #   user.save
+       # end
+      #end 
     end
 end
 
