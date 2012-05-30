@@ -44,4 +44,28 @@ module ApplicationHelper
   def admin?
     user_signed_in? and current_user.admin?
   end
+
+  def as_money(n)
+    if n < 0
+      nag = true
+      n = -n
+    else
+      nag = false
+    end
+    i = n / 100
+    d = n % 100
+    if d == 0 
+      ret = "#{i}"
+    elsif d >= 10
+      if d % 10 == 0
+        ret = "#{i}.#{d / 10}"
+      else
+        ret = "#{i}.#{d}"
+      end
+    else
+      ret = "#{i}.0#{d}"
+    end
+    ret = "-" + ret if nag
+    ret
+  end
 end

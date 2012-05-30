@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <td width="100"><b><%= t :my_remain %></b></td>
-      <td><%= current_user.money if user_signed_in? %></td>
+      <td><%= as_money(current_user.money) if user_signed_in? %></td>
     </tr>
   </table>
 </div>

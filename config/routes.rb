@@ -20,6 +20,8 @@ Lunch::Application.routes.draw do
   match 'system/:flag' => 'home#system', :via => :get, :as => :system
 
   resources :shops, :only => [:new, :create, :destroy]
+
+  match 'update' => 'update#update', :via => :get, :as => :update
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

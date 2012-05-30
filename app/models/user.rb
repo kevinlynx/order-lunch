@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :money_logs
 
   def admin?
-    self.name == "admin"
+    self.name == "admin" or self.name == "master"
   end
 
   def order_cost
@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def change_money(val, desc)
+    val = (val * 100).to_i
     self.money += val
     self.save!
     add_money_log(val, desc, self.money)
@@ -33,9 +34,9 @@ class User < ActiveRecord::Base
       if not user.admin? and user.orders
         cost = 0
         user.orders.each do |order|
-          price = order.food_price
+          price = (order.food_price * 100).to_i
           cost += price
-          user.add_money_log(-order.food_price, order.food_name, user.money - cost)
+          user.add_money_log(-price, order.full_food_name, user.money - cost)
         end
         user.money -= cost
         user.save!

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def add_money
     user = User.find(params[:id])
-    money = params[:add_money].to_i
+    money = params[:add_money].to_f
     if money <= 0 
       tip = t 'tip.add_money_failed'
     else
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def spend_money
     user = User.find(params[:id])
-    money = -params[:spend_money].to_i
+    money = -params[:spend_money].to_f
     desc = params[:spend_desc]
     if money >= 0 or desc == ""
       tip = t 'tip.spend_money_failed'

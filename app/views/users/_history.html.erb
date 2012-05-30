@@ -13,9 +13,9 @@
     <tbody>
     <% @money_logs.each do |log| %>
     <tr>
-      <td><%= log.value %></td>
+      <td><%= as_money log.value %></td>
       <td><%= log.desc %></td>
-      <td><%= log.remain %></td>
+      <td><%= as_money log.remain %></td>
       <td><%= l to_beijing_time(log.created_at), :format => :short %></td>
     </tr>
     <% end %>
