@@ -19,11 +19,15 @@ class UpdateController < ApplicationController
     end
 
     def do_update
+      # 5.30.2012 v4, delete these test users
+      User.find(20).destroy 
+      User.find(4).destroy 
+      User.find(3).destroy 
       # 5.30.2012 v3, change user remain money log
-      MoneyLog.all.each do |log|
-        log.remain = log.remain * 100
-        log.save
-      end
+      #MoneyLog.all.each do |log|
+      #  log.remain = log.remain * 100
+        #log.save
+      #end
 
       # 5.30.2012 v2, change user money log
       #MoneyLog.all.each do |log|
