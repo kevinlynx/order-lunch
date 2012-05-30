@@ -13,7 +13,7 @@
       <% user.orders.each do |order| %>
         <tr>
           <td><%= user.name unless write_name %></td>
-          <td><%= order.food_name %></td>
+          <td><%= order.full_food_name %></td>
           <% write_name = true %>
         </tr>
       <% end %>

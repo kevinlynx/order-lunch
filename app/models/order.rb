@@ -11,6 +11,11 @@ class Order < ActiveRecord::Base
     food.name
   end
 
+  def full_food_name
+    food = Food.find(self.food_id)
+    food.full_name
+  end
+
   def food_price
     food = Food.find(self.food_id)
     food.price
