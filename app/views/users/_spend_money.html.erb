@@ -4,6 +4,10 @@
       <%= text_field_tag :name, @user.name, :disabled => true %>
     </div>
     <div>
+      <%= label_tag t(:money_remain) %>
+      <%= text_field_tag :money, as_money(@user.money), :disabled => true %>
+    </div>
+    <div>
       <%= label_tag t(:money) %>
       <%= text_field_tag :spend_money, '', :class => 'txt-ctrl', :size => "10" %>
     </div>

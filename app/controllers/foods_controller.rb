@@ -59,5 +59,12 @@ class FoodsController < ApplicationController
       end
     end
   end
+
+  def order_users
+    @food = Food.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
+  end
 end
 

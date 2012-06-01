@@ -9,4 +9,8 @@ class Food < ActiveRecord::Base
   def full_name
     Shop.find(self.shop_id).name + self.name
   end
+
+  def order_users
+    Order.where("food_id=#{self.id}").collect { |order| order.user }
+  end
 end

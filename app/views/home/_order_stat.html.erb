@@ -1,40 +1,7 @@
 <h3 class='window-title'><%= t :order_status %></h3>
 <div class='formbody'>
-  <% total_count = 0 %>
-  <table class='stat' id='order-stat-table'>
-    <thead>
-    <tr>
-      <th width="100"><b><%= t :shop_name %></b></th>
-      <th width="200"><b><%= t :food_name %></b></th>
-      <th width="100"><b><%= t :food_count %></b></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @shops.each do |shop| %>
-      <% show_name = false %>
-      <% shop.sort_foods.each do |food| %>
-        <% order_count = food.order_count %>
-        <% total_count += order_count %>
-        <tr class=<%= 'quiet' if order_count == 0 %>>
-          <td><%= shop.name unless show_name %></td>
-          <td><%= food.name %></td>
-          <td><%= order_count %></td>
-        </tr>
-        <% show_name = true %>
-      <% end %>
-    <% end %>
-    </tbody>
-  </table>
-  <hr>
-  <span><b><%= t :total_price %></b><%= Order.total_price %></span>&nbsp;&nbsp;
-  <span><b><%= t :total_count %></b><%= total_count %></span>
-  <br/>
+  <% @shops.each do |shop| %>
+    <%= render 'shops/orders', :shop => shop %>
+  <% end %>
   <span style="color: red; font-size: 90%;"><%= t 'tip.check_user_order' %></span>
 </div>
-<script>
-$(document).ready(function() {
-    setTableHover("#order-stat-table");
-});
-
-</script>
-

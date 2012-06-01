@@ -8,9 +8,12 @@ function orderOne(e) {
     // TODO:
 }
 
-function setTableHover(t) {
+function setTableHover(t, hover_fn) {
   $(t + " tbody tr")
-      .mouseover(function() { $(this).addClass("hover"); })
+      .mouseover(function() { $(this).addClass("hover"); if (hover_fn) hover_fn();})
       .mouseout(function() { $(this).removeClass("hover"); })
 }
 
+$(document).ready(function() {
+    setTableHover("table");
+});

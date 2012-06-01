@@ -49,6 +49,16 @@
 
 * html not support nested form
 * has_many, belongs_to need add a user_id to order
+* highlight table row:
+   $(function() {
+      $('table tbody tr').mouseover(function() {
+         $(this).addClass('selectedRow');
+      }).mouseout(function() {
+         $(this).removeClass('selectedRow');
+      }).click(function() {
+         alert($('td:first', this).text());
+      });
+   });
 
 ## TODO
 

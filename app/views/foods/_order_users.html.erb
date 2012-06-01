@@ -1,0 +1,13 @@
+<div class='popup round' style="display:none; font-size: 90%;" id="food-order-<%= food.id%>">
+  <% users = food.order_users %>
+  <% if users.count == 0 %>
+    <span><%= t :food_order_empty %></span>
+  <% else %>
+    <b><%= t :food_order_stat, :cnt => users.count %></b><br/>
+    <ul>
+    <% food.order_users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

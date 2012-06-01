@@ -1,5 +1,5 @@
 <div id="menu">
-  <table class="stat" id="menu-table">
+  <table class="stat">
     <thead>
     <tr>
       <th width="21">
@@ -26,7 +26,11 @@
             <%= check_box_tag 'food_ids[]', food.id %>
           </td>
           <td><%= shop.name unless show_name %></td>
-          <td id="food<%= food.id %>"><%= food.name %></td>
+          <td id="food<%= food.id %>">
+            <%= link_to food.name, foods_order_users_path(food), :remote => true,
+                :title => t(:food_order_tip) %>
+            <%= render 'foods/order_users', :food => food %>
+          </td>
           <td><%= food.price %></td>
           <%= render 'foods/item_link', :food => food %>
         </tr>
@@ -36,10 +40,3 @@
     </tbody>
   </table>
 </div>
-<script>
-$(document).ready(function() {
-    setTableHover("#menu-table");
-});
-
-</script>
-

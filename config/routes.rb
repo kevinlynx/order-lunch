@@ -9,6 +9,7 @@ Lunch::Application.routes.draw do
   devise_for :users
 
   match 'foods' => 'foods#destroy_many', :via => :delete, :as => :foods
+  match 'foods/:id/users' => 'foods#order_users', :as => :foods_order_users
   resources :foods
   match 'orders' => 'orders#create_many', :via => :post, :as => :orders
   match 'order/:food_id' => 'orders#create', :via => :post, :as => :new_order
