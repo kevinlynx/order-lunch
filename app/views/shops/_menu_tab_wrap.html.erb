@@ -13,7 +13,7 @@
         <% end %>
     });
 </script>
-<% if not system_started? and not admin?%>
+<% if not system_started? and not admin? and @view_type != :stat %>
   <div id="sys-stop-tip">
     <p><%= t 'tip.today_menu_disable' %></p>
   </div>
