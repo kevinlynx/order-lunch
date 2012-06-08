@@ -8,6 +8,7 @@ class HomeController < ApplicationController
   end
 
   def stat
+    @view_type = :stat
     @shops = Shop.all()
     @users = User.all()
     @orders = current_user.orders if user_signed_in?

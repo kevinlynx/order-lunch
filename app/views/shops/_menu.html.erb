@@ -1,0 +1,22 @@
+<% if admin? %>
+  <%= form_tag(foods_path, :method => 'delete') do %>
+    <%= render 'shops/menu_core', :shop => shop %>
+    <div>
+     <%= link_to t(:batch_delete), '#', :class => 'link-btn-small', 
+         :onclick => "deleteFoods(this); return false" %>
+     <%= link_to t(:new_food), "#", :class => "link-btn-small", 
+         :onclick => "show_popup('#quickadd', '#tab-header-#{shop.id}', true); return false;" %>
+     <%= link_to t(:new_shop), '#', :class => "link-btn-small", 
+         :onclick => "show_popup('#addshop', '#tab-header-#{shop.id}', true); return false;" %>
+    </div>
+  <% end %>
+<% else %>
+  <%= form_tag(orders_path, :method => 'post') do %>
+    <%= render 'shops/menu_core', :shop => shop %>
+    <% if system_started? %>
+      <div>
+        <%= link_to_submit t(:batch_order), :class => 'link-btn-small' %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

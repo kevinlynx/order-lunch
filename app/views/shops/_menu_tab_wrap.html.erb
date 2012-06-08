@@ -1,0 +1,46 @@
+<script>
+    $(function() {
+        $("#menu-tabs").tabs();
+        <% if not system_started? and not admin?%>
+            $('#sys-stop-tip').dialog({ 
+                modal: true, 
+                buttons: {
+                    <%= t :close %>: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        <% end %>
+    });
+</script>
+<% if not system_started? and not admin?%>
+  <div id="sys-stop-tip">
+    <p><%= t 'tip.today_menu_disable' %></p>
+  </div>
+<% end %>
+<div id="menu-tabs">
+  <ul>
+    <% @shops.each do |shop| %>
+      <li>
+        <%= link_to shop.name, "#shop-#{shop.id}", :id => "tab-header-#{shop.id}" %>
+      </li>
+    <% end %>
+  </ul>
+  <% @shops.each do |shop| %>
+    <div id="shop-<%= shop.id %>">
+      <% if @view_type == :stat %>
+        <%= render 'shops/menu_core', :shop => shop %>
+      <% else %>
+        <%= render 'shops/menu', :shop => shop %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if admin? and @view_type != :stat %>
+    <%= render 'foods/quickadd' %>
+    <div id="quickedit" style="display:none;" class="popup"></div>
+    <div id="addshop" style="display:none;" class="popup">
+      <%= render 'shops/quickadd' %>
+    </div>
+  <% end %>
+</div>
+

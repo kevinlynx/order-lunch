@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :order_users]
 
   def index
     @foods = Food.all

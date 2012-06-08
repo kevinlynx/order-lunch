@@ -1,0 +1,39 @@
+  <table class="stat">
+    <thead>
+    <tr>
+      <th width="21">
+          <%= check_box_tag "checkall", "checkall", false, :onclick => "markAll(this)" %>
+      </th>
+      <th width="200"><b><%= t :food_name %></b></th>
+      <th width="50"><b><%= t :food_price %></b></th>
+      <th width="80"><b><%= t :food_count %></b></th>
+    </tr>
+    </thead>
+    <tbody>
+      <% shop.sort_foods.each do |food| %>
+        <tr>
+          <td>
+            <%= check_box_tag 'food_ids[]', food.id %>
+          </td>
+          <td id="food<%= food.id %>">
+            <%= link_to food.name, foods_order_users_path(food), :remote => true,
+                :title => t(:food_order_tip) %>
+            <%= render 'foods/order_users', :food => food %>
+          </td>
+          <td><%= food.price %></td>
+          <td><%= food.order_count %></td>
+          <% if @view_type != :stat %>
+            <%= render 'foods/item_link', :food => food %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% if @view_type == :stat %>
+  <hr/>
+  <% count, price = shop.order_info %>
+  <div> 
+    <span><b><%= t :total_price %></b><%= price %></span>&nbsp;&nbsp;
+    <span><b><%= t :total_count %></b><%= count%></span>
+  </div>
+<% end %>
