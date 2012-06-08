@@ -1,7 +1,7 @@
 <script>
     $(function() {
         $("#menu-tabs").tabs();
-        <% if not system_started? and not admin?%>
+        <% if not system_started? and not admin? and @view_type != :stat %>
             $('#sys-stop-tip').dialog({ 
                 modal: true, 
                 buttons: {
