@@ -21,12 +21,12 @@ class HomeController < ApplicationController
   def system
     if user_signed_in? and current_user.admin?
       s = params[:flag].to_i
-      tip = ""
-      if s > 0 
+      tip = "invalid request"
+      if s > 0 and not SystemStatus.start?
         User.clear_orders
         SystemStatus.start
         tip = t "tip.start_success"
-      else
+      elsif s == 0 and SystemStatus.start?
         User.commit_orders
         SystemStatus.stop
         tip = t "tip.stop_success"
