@@ -38,6 +38,8 @@
   <div class="popup" style="display:none;" id="sys_setup"></div>
 </div>
 <script>
-    submit_timezone('<%= sys_timezone_path %>', '#timezone_name');
+    $(document).ready(function() {
+        submit_timezone('<%= sys_timezone_path %>', '#timezone_name');
+    });
 </script>
 

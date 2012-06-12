@@ -56,7 +56,7 @@ class HomeController < ApplicationController
         format.html { redirect_to root_path, :notice => 'invalid input' }
       end
     else
-      zone = ActiveSupport::TimeZone[session[:zone_name]]
+      zone = ActiveSupport::TimeZone[session[:zone_name]] if session[:zone_name]
       zone = ActiveSupport::TimeZone["UTC"] unless zone
       hour, min = Sys.local_to_utc(hour, min, zone)
       Sys.set_stop_time(hour, min)
