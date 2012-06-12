@@ -2,6 +2,7 @@
   <% hour, min = Sys.stop_time %>
   <% zone = ActiveSupport::TimeZone[session[:zone_name]] %>
   <% hour, min = Sys.utc_to_local hour, min, zone %>
+  <%= hidden_field_tag :zone_name, session[:zone_name] %>
   <div>
     <%= label_tag t('tip.sys_stop_time') %><br/>
     <%= text_field_tag :hour, hour, :class => 'txt-ctrl', :size => "5" %>:

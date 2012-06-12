@@ -41,7 +41,7 @@ function start_count_remain_time(remain) {
     setTimeout(function() { decrease_remain_time(remain); }, 1000);
 }
 
-function submit_timezone(url, e) {
+function submit_timezone(url) {
   $.get(url, {'offset_min' : (-1 * (new Date()).getTimezoneOffset())});
 }
 
