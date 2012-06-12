@@ -1,0 +1,3 @@
+$('#stop_time_tip').html("<%= escape_javascript(render('sys/stoptime_tip')) %>");
+$('#sys_setup').html("<%= escape_javascript(render('sys/setup')) %>");
+$('#timezone_name').html("Client Time Zone: <%= session[:zone_name] %>")

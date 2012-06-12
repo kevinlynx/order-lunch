@@ -1,0 +1,4 @@
+<% hour, min = Sys.stop_time %>
+<% zone = ActiveSupport::TimeZone[session[:zone_name]] %>
+<% hour, min = Sys.utc_to_local hour, min, zone %>
+<%= t :sys_stop_time %><%= as_time hour, min %>

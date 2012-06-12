@@ -56,11 +56,24 @@ class HomeController < ApplicationController
         format.html { redirect_to root_path, :notice => 'invalid input' }
       end
     else
+      zone = ActiveSupport::TimeZone[session[:zone_name]]
+      zone = ActiveSupport::TimeZone["UTC"] unless zone
+      hour, min = Sys.local_to_utc(hour, min, zone)
       Sys.set_stop_time(hour, min)
       respond_to do |format|
         format.html { redirect_to root_path, :notice => t('tip.update_success') }
       end
     end
+  end
+
+  def timezone
+      offset_sec = params[:offset_min].to_i * 60
+      zone = ActiveSupport::TimeZone[offset_sec]
+      zone = ActiveSupport::TimeZone["UTC"] unless zone
+      session[:zone_name] = zone.name if zone
+      respond_to do |format|
+        format.js
+      end
   end
 
   private

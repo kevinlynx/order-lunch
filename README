@@ -2,5 +2,6 @@ A simple web application to help my co-workers to order lunch.
 
 ## history
 
+* 6.12.2012, add auto stop ordering, make menu tab be ajax mode
 * 6.8.2012, add jquery-ui to split menu by tabs.
 

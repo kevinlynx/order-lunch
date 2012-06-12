@@ -17,11 +17,21 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Food.find(params[:id])
+    @shop = Shop.find(params[:id])
     @shop.destroy
     respond_to do |format|
       format.html { redirect_to root_path, :notice => t('tip.destroy_success') }
     end
+  end
+
+  def show
+    @shop = Shop.find(params[:id])
+    @view_type = params[:type]
+    @view_type = @view_type.to_sym if @view_type
+    partial = 'shops/menu'
+    partial = 'shops/menu_core' if @view_type == :stat
+    render :text => 
+        render_to_string(:partial => partial, :locals => { :shop => @shop })
   end
 end
 

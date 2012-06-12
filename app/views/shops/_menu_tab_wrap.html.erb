@@ -22,18 +22,13 @@
   <ul>
     <% @shops.each do |shop| %>
       <li>
-        <%= link_to shop.name, "#shop-#{shop.id}", :id => "tab-header-#{shop.id}" %>
+      <%= link_to shop.name, shop_path(shop, :type => @view_type), 
+          :id => "tab-header-#{shop.id}" %>
       </li>
     <% end %>
   </ul>
   <% @shops.each do |shop| %>
-    <div id="shop-<%= shop.id %>">
-      <% if @view_type == :stat %>
-        <%= render 'shops/menu_core', :shop => shop %>
-      <% else %>
-        <%= render 'shops/menu', :shop => shop %>
-      <% end %>
-    </div>
+    <div id="shop-<%= shop.id %>"></div>
   <% end %>
   <% if admin? and @view_type != :stat %>
     <%= render 'foods/quickadd' %>

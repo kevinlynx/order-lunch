@@ -4,10 +4,6 @@ function deleteFoods(e) {
     $(e).closest('form').submit();
 }
 
-function orderOne(e) {
-    // TODO:
-}
-
 function setTableHover(t, hover_fn) {
   $(t + " tbody tr")
       .mouseover(function() { $(this).addClass("hover"); if (hover_fn) hover_fn();})
@@ -43,5 +39,9 @@ function decrease_remain_time(remain) {
 
 function start_count_remain_time(remain) {
     setTimeout(function() { decrease_remain_time(remain); }, 1000);
+}
+
+function submit_timezone(url, e) {
+  $.get(url, {'offset_min' : (-1 * (new Date()).getTimezoneOffset())});
 }
 
