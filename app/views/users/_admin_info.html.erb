@@ -10,11 +10,5 @@
       <td><%= as_money all_remain_money %></td>
     </tr>
   </table>
-  <hr/>
-  <% if system_started? %>
-    <%= link_to t(:stop_sys), system_path(0), :class => 'link-btn-small' %>
-  <% else %>
-    <%= link_to t(:start_sys), system_path(1), :class => 'link-btn-small' %>
-  <% end %>
 </div>
 

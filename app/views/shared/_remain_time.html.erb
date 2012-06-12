@@ -1,0 +1,7 @@
+<%= form_for(:sys, :url => sys_check_path, :method => :post) do |f| %>
+<%= t :remain_time %> <span id="remain_time"></span>
+<% end %>
+<script type="text/javascript">
+  refresh_time_span(<%= remain %>);
+  start_count_remain_time(<%= remain %>);
+</script>

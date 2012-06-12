@@ -1,0 +1,40 @@
+<h3 class='window-title'><%= t :sys_info %></h3>
+<div class="formbody" id="sys_info">
+  <div>
+  <% remain = Sys.check_remain %>
+  <!-- NOTE -->
+  <% Sys.visit %>
+  <% if remain == 0 %>
+    <!-- NOTE -->
+    <% User.commit_orders %>
+  <% end %>
+  <% if remain <= 0 %>
+    <span><%= t 'tip.system_stopped' %></span>
+  <% else %>
+    <%= render 'shared/remain_time', :remain => remain %>
+  <% end %>
+  </div>
+  <% if admin? %>
+    <% hour, min = Sys.stop_time %>
+    <div>
+    <span id="stop_time_tip"><%= t :sys_stop_time %><%= as_time hour, min %></span>
+    <%= link_to t(:setup), '#', :class => 'link-btn-small', 
+        :onclick => "show_popup('#sys_setup', '#stop_time_tip', true);return false;" %>
+    </div>
+    <div>
+      <span class='quiet' style="font-size: 90%;"><%= t 'tip.stop_time_tip' %></span>
+    </div>
+    <hr/>
+    <div>
+    <% if Sys.start? %>
+      <%= link_to t(:stop_sys), system_path(0), :class => 'link-btn-small' %>
+    <% else %>
+      <%= link_to t(:start_sys), system_path(1), :class => 'link-btn-small' %>
+    <% end %>
+    </div>
+  <% end %>
+  <div class="popup" style="display:none;" id="sys_setup">
+    <%= render 'sys/setup' %>
+  </div>
+</div>
+

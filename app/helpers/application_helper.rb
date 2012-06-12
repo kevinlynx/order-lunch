@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def system_started?
-    SystemStatus.start?
+    Sys.start?
   end
 
   def to_beijing_time(time)
@@ -67,5 +67,13 @@ module ApplicationHelper
     end
     ret = "-" + ret if nag
     ret
+  end
+
+  def as_time(hour, min)
+    if min < 10
+      hour.to_s + ":0" + min.to_s
+    else
+      hour.to_s + ":" + min.to_s
+    end
   end
 end

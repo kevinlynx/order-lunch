@@ -55,6 +55,10 @@ cn:
   food_order_stat: "%{cnt}人选择了该菜品"
   food_order_empty: "还没有人选择该菜品"
   food_order_tip: "点击查看选择该餐的用户"
+  remain_time: "剩余订餐时间："
+  sys_info: "系统信息"
+  sys_stop_time: "订餐停止时间："
+  setup: "设置"
   tip:
     not_signin: "未登录"
     you_sure: "确定操作吗？"
@@ -83,5 +87,8 @@ cn:
     damn_ie6: "WHAT THE FUCK!你竟然还在用IE6，本站很多功能将不支持上个世纪的浏览器！赶紧升级你的IE，或使用Chrome！"
     check_user_order: "提示：最好查看以下用户的订餐信息，以防无效、重复订单！"
     shop_no_orders: "该餐馆没有任何订餐"
+    stop_time_invalid: "订餐停止时间须晚于当前时间"
+    stop_time_tip: "系统会在设置好的停止时间到达时自动停止订餐，你也可以手动停止。"
+    sys_stop_time: "订餐停止时间(24小时制)"
 
 

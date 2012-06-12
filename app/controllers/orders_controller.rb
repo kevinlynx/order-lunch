@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
   private
     def permission_check
       authenticate_user!
-      unless SystemStatus.start?
+      unless Sys.start?
         respond_to do |format|
           format.html { redirect_to root_path, :notice => t('system_stopped') }
         end

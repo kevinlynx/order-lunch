@@ -1,0 +1,14 @@
+<%= form_for(:sys, :url => sys_setup_path, :method => :post) do |f| %>
+  <% hour, min = Sys.stop_time %>
+  <div>
+    <%= label_tag t('tip.sys_stop_time') %><br/>
+    <%= text_field_tag :hour, hour, :class => 'txt-ctrl', :size => "5" %>:
+    <%= text_field_tag :min, min, :class => 'txt-ctrl', :size => "5" %>
+  </div>
+  <div>
+    <%= link_to_submit t(:update), :class => 'link-btn-small' %>
+    <%= link_to t(:close), '#', :class => 'link-btn-small', 
+        :onclick => "hide_popup('#sys_setup'); return false" %>
+  </div>
+<% end %>
+

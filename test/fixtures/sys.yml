@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  run: 1
+  stop_hour: 1
+  stop_min: 1
+
+two:
+  run: 1
+  stop_hour: 1
+  stop_min: 1

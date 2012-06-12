@@ -18,6 +18,8 @@ Lunch::Application.routes.draw do
   match 'faq' => 'home#faq', :via => :get, :as => :faq
   match 'stat' => 'home#stat', :via => :get, :as => :stat
   match 'user_stat' => 'home#user_stat', :via => :get, :as => :user_stat
+  match 'system/check' => 'home#check_sys', :via => :post, :as => :sys_check
+  match 'system/setup' => 'home#sys_setup', :via => :post, :as => :sys_setup
   match 'system/:flag' => 'home#system', :via => :get, :as => :system
 
   resources :shops, :only => [:new, :create, :destroy]
