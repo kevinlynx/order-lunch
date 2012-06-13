@@ -1,0 +1,4 @@
+cn:
+  frontend:
+    delete_shop: "删除该餐馆将同时删除其下的所有菜品！"
+    delete_food: "确定删除吗？"

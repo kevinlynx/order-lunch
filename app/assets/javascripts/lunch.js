@@ -1,6 +1,6 @@
 
 function deleteFoods(e) {
-    if (!confirm('are you sure?')) return ;
+    if (!confirm(I18n.t('frontend.delete_food'))) return ;
     $(e).closest('form').submit();
 }
 

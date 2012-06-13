@@ -9,3 +9,5 @@
 //= require_tree .
 //= require jquery.ui.tabs
 //= require jquery.ui.dialog
+//= require i18n
+//= require i18n/translations

@@ -19,4 +19,10 @@ class Shop < ActiveRecord::Base
     end
     return count, price
   end
+
+  def destroy_foods
+    foods.each do |food|
+      food.destroy
+    end
+  end
 end

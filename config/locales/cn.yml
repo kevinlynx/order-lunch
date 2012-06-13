@@ -44,6 +44,7 @@ cn:
   spend_money: "扣除"
   spend_desc: "说明"
   new_shop: "添加餐馆"
+  delete_shop: "删除该餐馆"
   shop_name: "店名"
   exist_shop: "已有餐馆"
   add: "添加"

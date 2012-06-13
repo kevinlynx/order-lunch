@@ -18,6 +18,7 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop = Shop.find(params[:id])
+    @shop.destroy_foods
     @shop.destroy
     respond_to do |format|
       format.html { redirect_to root_path, :notice => t('tip.destroy_success') }
