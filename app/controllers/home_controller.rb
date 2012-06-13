@@ -23,10 +23,9 @@ class HomeController < ApplicationController
   def system
     s = params[:flag].to_i
     tip = "invalid request"
-    #if Sys.remain_time == 0 
-    #  tip = t 'tip.stop_time_invalid'
-    #elsif s > 0 and not Sys.start?
-    if s > 0 and not Sys.start?
+    if Sys.remain_time == 0 
+      tip = t 'tip.stop_time_invalid'
+    elsif s > 0 and not Sys.start?
       User.clear_orders
       Sys.start
       tip = t "tip.start_success"

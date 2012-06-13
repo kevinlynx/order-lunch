@@ -9,8 +9,9 @@ class Sys < ActiveRecord::Base
   end
 
   def self.visit
-    setup.visited_at = Time.now.utc
-    setup.save
+    s = setup
+    s.visited_at = Time.now.utc
+    s.save
   end
 
   def self.start?
