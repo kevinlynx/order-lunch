@@ -1,13 +1,13 @@
 <% if admin? %>
-  <td>
+  <td width="35">
     <%= link_to t(:delete), food_path(food), :method => :delete, 
         :confirm => t("tip.you_sure") %>
   </td>
-  <td>
+  <td width="35">
     <%= link_to t(:edit), edit_food_path(food), :remote => true %>
   </td>
 <% elsif system_started? %>
-  <td>
+  <td width="35">
     <%= link_to t(:order_it), new_order_path(food), :method => :post %>
   </td>
 <% end %>

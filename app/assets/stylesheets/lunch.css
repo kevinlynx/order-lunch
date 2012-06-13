@@ -149,6 +149,12 @@ table tr td {
   margin-bottom: 10px;
 }
 
+ul.menu-header {
+  width: 520px; 
+  overflow:hidden;
+}
+
 #sys_info div {
   margin-bottom: 10px;
 }
+

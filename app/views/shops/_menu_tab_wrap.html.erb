@@ -1,6 +1,6 @@
 <script>
     $(function() {
-        $("#menu-tabs").tabs();
+        $("#menu-tabs").tabs().scrollabletab();
         <% if not system_started? and not admin? and @view_type != :stat %>
             $('#sys-stop-tip').dialog({ 
                 modal: true, 
@@ -19,7 +19,7 @@
   </div>
 <% end %>
 <div id="menu-tabs">
-  <ul>
+  <ul class="menu-header">
     <% @shops.each do |shop| %>
       <li>
       <%= link_to shop.name, shop_path(shop, :type => @view_type), 
