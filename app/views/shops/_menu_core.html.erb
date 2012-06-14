@@ -1,4 +1,4 @@
-  <table class="stat">
+<table class="stat">
     <thead>
     <tr>
       <th width="21">
@@ -15,9 +15,8 @@
           <td>
             <%= check_box_tag 'food_ids[]', food.id %>
           </td>
-          <td id="food<%= food.id %>">
-            <%= link_to food.name, foods_order_users_path(food), :remote => true,
-                :title => t(:food_order_tip) %>
+          <td class="order_tip">
+            <%= food.name %>
             <%= render 'foods/order_users', :food => food %>
           </td>
           <td><%= food.price %></td>
@@ -28,7 +27,20 @@
         </tr>
       <% end %>
     </tbody>
-  </table>
+</table>
+<script>
+    $(function () {
+        setTableHover("table");
+        $('.order_tip').hover(
+            function () {
+                show_popupex($(this).find("div"), $(this));
+            },
+            function () {
+                $(this).find("div").hide();
+            }
+            );
+    });
+</script>
 <% if @view_type == :stat %>
   <hr/>
   <% count, price = shop.order_info %>

@@ -1,4 +1,4 @@
-<div class='popup round' style="display:none; font-size: 90%;" id="food-order-<%= food.id%>">
+<div class='popup round' style="display:none; font-size: 90%;">
   <% users = food.order_users %>
   <% if users.count == 0 %>
     <span><%= t :food_order_empty %></span>
