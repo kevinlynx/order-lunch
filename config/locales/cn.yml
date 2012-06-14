@@ -60,7 +60,11 @@ cn:
   sys_info: "系统信息"
   sys_stop_time: "订餐停止时间："
   setup: "设置"
+  hide: "隐藏"
+  show: "显示"
   tip:
+    op_success: "操作成功"
+    op_failed: "操作失败"
     not_signin: "未登录"
     you_sure: "确定操作吗？"
     today_menu_enable: "今日菜单-订餐中"
@@ -91,5 +95,5 @@ cn:
     stop_time_invalid: "订餐停止时间须晚于当前时间"
     stop_time_tip: "系统会在设置好的停止时间到达时自动停止订餐，你也可以手动停止。"
     sys_stop_time: "订餐停止时间(24小时制)"
-
+    hide_shop: "隐藏该餐馆将导致用户无法看到该餐馆的菜品"
 

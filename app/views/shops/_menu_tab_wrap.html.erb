@@ -21,10 +21,12 @@
 <div id="menu-tabs">
   <ul class="menu-header">
     <% @shops.each do |shop| %>
-      <li>
-      <%= link_to shop.name, shop_path(shop, :type => @view_type), 
-          :id => "tab-header-#{shop.id}" %>
-      </li>
+      <% if not shop.hide? or admin? %>
+        <li>
+          <%= link_to shop.name, shop_path(shop, :type => @view_type), 
+              :id => "tab-header-#{shop.id}" %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
   <% @shops.each do |shop| %>

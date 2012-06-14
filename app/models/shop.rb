@@ -25,4 +25,9 @@ class Shop < ActiveRecord::Base
       food.destroy
     end
   end
+
+  def check_hide
+    self.hide = !self.hide?
+    self.save
+  end
 end

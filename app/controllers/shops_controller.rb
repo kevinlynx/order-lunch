@@ -34,5 +34,17 @@ class ShopsController < ApplicationController
     render :text => 
         render_to_string(:partial => partial, :locals => { :shop => @shop })
   end
+
+  def hide
+    @shop = Shop.find(params[:id])
+    tip = t 'tip.op_failed'
+    if @shop
+      @shop.check_hide
+      tip = t 'tip.op_success'
+    end
+    respond_to do |format|
+      format.html { redirect_to root_path, :notice => tip }
+    end
+  end
 end
 

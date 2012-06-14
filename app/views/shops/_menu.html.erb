@@ -3,14 +3,7 @@
     <%= render 'shops/menu_core', :shop => shop %>
     <hr/>
     <div>
-     <%= link_to t(:batch_delete), '#', :class => 'link-btn-small', 
-         :onclick => "deleteFoods(this); return false" %>
-     <%= link_to t(:new_food), "#", :class => "link-btn-small", 
-         :onclick => "show_popup('#quickadd', '#tab-header-#{shop.id}', true); return false;" %>
-     <%= link_to t(:new_shop), '#', :class => "link-btn-small", 
-         :onclick => "show_popup('#addshop', '#tab-header-#{shop.id}', true); return false;" %>
-     <%= link_to t(:delete_shop), shop_path(shop), :class => "link-btn-small", 
-         :confirm => t('frontend.delete_shop'), :method => :delete %>
+      <%= render 'shops/admin_ops', :shop => shop %>
     </div>
   <% end %>
 <% else %>
