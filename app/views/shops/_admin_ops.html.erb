@@ -7,8 +7,7 @@
 <%= link_to t(:delete_shop), shop_path(shop), :class => "link-btn-small", 
     :confirm => t('frontend.delete_shop'), :method => :delete %>
 <% if shop.hide? %>
-  <%= link_to t('show'), shop_hide_path(shop), :class => 'link-btn-small', 
-      :method => :post %>
+  <%= link_to t('show'), shop_hide_path(shop), :class => 'link-btn-small' %>
 <% else %>
   <%= link_to t('hide'), shop_hide_path(shop), :confirm => t('tip.hide_shop'),
       :class => 'link-btn-small' %>

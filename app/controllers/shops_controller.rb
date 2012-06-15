@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  before_filter :permission_check, :except => [:show]
+
   def new
     respond_to do |format|
       format.js
