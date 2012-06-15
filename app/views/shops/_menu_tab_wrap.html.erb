@@ -19,25 +19,33 @@
   </div>
 <% end %>
 <div id="menu-tabs">
-  <ul class="menu-header">
-    <% @shops.each do |shop| %>
-      <% if not shop.hide? or admin? %>
+  <% if @shops.count.zero? %>
+    <div class="error">
+      <h4><%= t 'tip.no_foods_yet' %></h4>
+      <% if admin? %>
+        <%= link_to t(:new_shop), '#', :class => "link-btn-small", 
+            :onclick => "show_popup('#addshop', '#menu-tabs', true); return false;" %>
+      <% end %>
+    </div>
+  <% else %>
+    <ul class="menu-header">
+      <% @shops.each do |shop| %>
         <li>
           <%= link_to shop.name, shop_path(shop, :type => @view_type), 
               :id => "tab-header-#{shop.id}" %>
         </li>
       <% end %>
+    </ul>
+    <% @shops.each do |shop| %>
+      <div id="shop-<%= shop.id %>"></div>
     <% end %>
-  </ul>
-  <% @shops.each do |shop| %>
-    <div id="shop-<%= shop.id %>"></div>
+    <% if admin? and @view_type != :stat %>
+      <%= render 'foods/quickadd' %>
+      <div id="quickedit" style="display:none;" class="popup"></div>
+    <% end %>
   <% end %>
-  <% if admin? and @view_type != :stat %>
-    <%= render 'foods/quickadd' %>
-    <div id="quickedit" style="display:none;" class="popup"></div>
-    <div id="addshop" style="display:none;" class="popup">
-      <%= render 'shops/quickadd' %>
-    </div>
-  <% end %>
+  <div id="addshop" style="display:none;" class="popup">
+    <%= render 'shops/quickadd' %>
+  </div>
 </div>
 

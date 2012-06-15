@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20120614092024) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "hide"
+    t.boolean  "hide",       :default => false
   end
 
   create_table "sys", :force => true do |t|

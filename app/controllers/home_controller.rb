@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_filter :permission_check, :only => [:sys_setup, :system]
 
   def index
-    @shops = Shop.all()
+    @shops = admin? ? Shop.all() : Shop.visible_shops
     @orders = current_user.orders if user_signed_in?
   end
 
@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
   def stat
     @view_type = :stat
-    @shops = Shop.all()
+    @shops = admin? ? Shop.all() : Shop.visible_shops
     @users = User.all()
     @orders = current_user.orders if user_signed_in?
   end

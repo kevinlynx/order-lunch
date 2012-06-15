@@ -30,4 +30,8 @@ class Shop < ActiveRecord::Base
     self.hide = !self.hide?
     self.save
   end
+
+  def self.visible_shops
+    Shop.find(:all, :conditions => ["hide is null or hide=?", false])
+  end
 end

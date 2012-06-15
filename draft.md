@@ -72,3 +72,4 @@
 ## QUESTION
 
 * why hide shop with post method does not work, but get method can work ?
+* why session[:zone_name] be nil in another request?

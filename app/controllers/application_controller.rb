@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
         end
       end
     end
+
+    def admin?
+      user_signed_in? and current_user.admin?
+    end
 end
