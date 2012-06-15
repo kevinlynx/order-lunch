@@ -69,3 +69,6 @@
 * how to write a singleton class i.e: system
 * test edit/delete food when ordering
 
+## QUESTION
+
+* why hide shop with post method does not work, but get method can work ?
