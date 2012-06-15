@@ -23,7 +23,7 @@ Lunch::Application.routes.draw do
   match 'system/setup' => 'home#sys_setup', :via => :post, :as => :sys_setup
   match 'system/:flag' => 'home#system', :via => :get, :as => :system
 
-  match 'shop/hide/:id' => 'shops#hide', :via => :post, :as => :shop_hide
+  match 'shop/hide/:id' => 'shops#hide', :via => :get, :as => :shop_hide
   resources :shops, :only => [:new, :create, :destroy, :show]
 
   match 'update' => 'update#update', :via => :get, :as => :update
