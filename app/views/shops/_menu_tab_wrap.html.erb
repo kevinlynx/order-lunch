@@ -42,10 +42,10 @@
     <% if admin? and @view_type != :stat %>
       <%= render 'foods/quickadd' %>
       <div id="quickedit" style="display:none;" class="popup"></div>
+      <div id="addshop" style="display:none;" class="popup">
+        <%= render 'shops/quickadd' %>
+      </div>
     <% end %>
   <% end %>
-  <div id="addshop" style="display:none;" class="popup">
-    <%= render 'shops/quickadd' %>
-  </div>
 </div>
 
