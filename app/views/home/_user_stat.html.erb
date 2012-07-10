@@ -19,7 +19,8 @@
                     :onclick => "show_popup('#op-content-#{user.id}', '#user-op-#{user.id}'); return false;" %></td>
           <span class='popup' style='display:none;' id="op-content-<%= user.id %>">
             <%= link_to t(:history), user_history_path(user) %>
-            <%= link_to t(:reset_pwd), user_resetpwd_path(user), :remote => true %>
+            <%= link_to t(:reset_pwd), user_resetpwd_path(user), :remote => true, 
+                :confirm => t('tip.you_sure') %>
         </span>
         </tr>
       <% end %>
