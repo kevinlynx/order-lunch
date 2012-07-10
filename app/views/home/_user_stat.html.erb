@@ -15,7 +15,12 @@
           <td id="user<%= user.id %>"><%= as_money user.money %></td>
           <td><%= link_to t(:add_money), user_money_path(user), :remote => true %></td>
           <td><%= link_to t(:spend_money), user_spend_money_path(user), :remote => true %></td>
-          <td><%= link_to t(:history), user_history_path(user) %></td>
+          <td><%= link_to t(:more), '#', :id => "user-op-#{user.id}", 
+                    :onclick => "show_popup('#op-content-#{user.id}', '#user-op-#{user.id}'); return false;" %></td>
+          <span class='popup' style='display:none;' id="op-content-<%= user.id %>">
+            <%= link_to t(:history), user_history_path(user) %>
+            <%= link_to t(:reset_pwd), user_resetpwd_path(user), :remote => true %>
+        </span>
         </tr>
       <% end %>
     <% end %>
@@ -24,9 +29,5 @@
   <div id="addmoney" class="popup" style="display:none;"></div>
   <div id="spendmoney" class="popup" style="display:none;"></div>
 </div>
-<script>
-$(document).ready(function() {
-    setTableHover("#user-stat-table");
-});
-
-</script>
+<div id="resetpwd_info">
+</div>

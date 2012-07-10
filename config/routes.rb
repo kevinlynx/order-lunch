@@ -1,4 +1,5 @@
 Lunch::Application.routes.draw do
+  match 'user/reset_pwd/:id' => 'users#reset_pwd', :via => :get, :as => :user_resetpwd
   match 'user/:id' => 'users#add_money', :via => :post, :as => :user_money
   match 'user/:id' => 'users#add_money_form', :via => :get, :as => :user_money
   match 'user/spend_money/:id' => 'users#spend_money', :via => :post, :as => :user_spend_money

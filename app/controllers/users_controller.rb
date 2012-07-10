@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :permission_check, :only => [:reset_pwd]
+
   def add_money
     user = User.find(params[:id])
     money = params[:add_money].to_f
@@ -62,6 +64,14 @@ class UsersController < ApplicationController
       redirect_to root_path, :notice => t('tip.update_success')
     else
       redirect_to root_path, :notice => t('tip.update_failed')
+    end
+  end
+
+  def reset_pwd
+    @user = User.find(params[:id])
+    @newpwd = @user.reset_pwd
+    respond_to do |format|
+      format.js
     end
   end
 end

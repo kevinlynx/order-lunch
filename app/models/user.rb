@@ -53,4 +53,17 @@ class User < ActiveRecord::Base
     log.user = self
     self.money_logs << log
   end
+
+  def reset_pwd
+    pwd = generate_pwd
+    self.password = pwd
+    self.save!
+    pwd
+  end
+
+  private
+    def generate_pwd
+        o = [('a'..'z'), ('A'..'Z'), (0..9)].map { |i| i.to_a }.flatten
+        (1..6).map { o[rand(o.length)] }.join
+    end
 end

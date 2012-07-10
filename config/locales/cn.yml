@@ -62,6 +62,8 @@ cn:
   setup: "设置"
   hide: "隐藏"
   show: "显示"
+  more: "更多"
+  reset_pwd: "重置密码"
   tip:
     op_success: "操作成功"
     op_failed: "操作失败"
@@ -96,4 +98,5 @@ cn:
     stop_time_tip: "系统会在设置好的停止时间到达时自动停止订餐，你也可以手动停止。"
     sys_stop_time: "订餐停止时间(24小时制)"
     hide_shop: "隐藏该餐馆将导致用户无法看到该餐馆的菜品"
+    reset_pwd: "重置%{name}(%{email})密码成功。新密码为："
 
